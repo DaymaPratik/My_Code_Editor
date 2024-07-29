@@ -93,7 +93,7 @@ function NewProject() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:10000/api/newProject", {
+      const response = await fetch("https://my-code-editor.onrender.com/api/newProject", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

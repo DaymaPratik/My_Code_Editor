@@ -21,7 +21,7 @@ function AllProjects() {
     }
     useEffect(()=>{
         const getAllProjectFunction=async()=>{
-            const response=await fetch("http://localhost:10000/api/getAllProjects",{
+            const response=await fetch("https://my-code-editor.onrender.com/api/getAllProjects",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json",
@@ -41,7 +41,7 @@ function AllProjects() {
     },[])
     
     const handleEdit=async(id)=>{
-      const response=await fetch(`http://localhost:10000/api/editProject/:${id}`,{
+      const response=await fetch(`https://my-code-editor.onrender.com/api/editProject/:${id}`,{
         method:"GET",
         headers:{
           "Content-Type":"application/json"
@@ -55,7 +55,7 @@ function AllProjects() {
       navigate('/newProject');
      }
      const deleteProjectFunction=async(id)=>{
-      const response=await fetch(`http://localhost:10000/api/deleteProject/:${id}`,{
+      const response=await fetch(`https://my-code-editor.onrender.com/api/deleteProject/:${id}`,{
         method:"GET",
         headers:{
           "Content-Type":"application/json"

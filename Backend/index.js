@@ -7,8 +7,10 @@ const jwt=require('jsonwebtoken');
 const User=require('./Model/userModel')
 var cookieParser = require('cookie-parser');
 const app= express();
+
+// http://localhost:5173
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin:'https://my-code-editor-taupe.vercel.app/',
     credentials: true,
     methods:'POST,GET,PUT,PATCH',
 }))
@@ -27,8 +29,8 @@ const authenticateToken = (req, res, next) => {
     });
   };
   
-
-mongoose.connect('mongodb://localhost:27017/Code_Editor_Db')
+  // mongodb://localhost:27017/Code_Editor_Db
+mongoose.connect('mongodb+srv://pratikdayma45:LzJlylhbT6B09Fqd@cluster0.cpq5ooo.mongodb.net/')
 .then(()=>{console.log('DB Connected Successfully');})
 .catch((e)=>{console.log("Error connecting DB ",e);})
 // app.use(authenticateToken);
