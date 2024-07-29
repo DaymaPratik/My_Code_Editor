@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+.button-box {
+  display: flex;
+  gap: 20px;
+}
+
+.glow {
+  position: relative;
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  outline: none;
+  transition:0.3s ease-in-out;
+}
+
+.glow::before, .glow::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background: linear-gradient(45deg, #e6fb04,red,#ff00ff,#ff0099,#ff3300,blue);
+  background-size: 400%;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  z-index: -1;
+  animation: animate 20s linear infinite;
+}
+
+
+.glow::after {
+  filter: blur(20px);
+}
+
+.glow:hover {
+  box-shadow: 0 0 10px 3px rgb(189, 189, 255);
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
