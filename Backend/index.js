@@ -10,7 +10,7 @@ const app= express();
 
 // http://localhost:5173
 app.use(cors({
-    origin:'https://my-code-editor-taupe.vercel.app/',
+    origin:'https://my-code-editor-taupe.vercel.app',
     credentials: true,
     methods:'POST,GET,PUT,PATCH',
 }))
