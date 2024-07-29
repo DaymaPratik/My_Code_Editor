@@ -7,7 +7,7 @@ const jwt=require('jsonwebtoken');
 const User=require('./Model/userModel')
 var cookieParser = require('cookie-parser');
 const app= express();
-
+const vercelUrl='https://my-code-editor-taupe.vercel.app';
 // http://localhost:5173
 app.use(cors({
     origin:'https://my-code-editor-taupe.vercel.app',
@@ -16,19 +16,19 @@ app.use(cors({
 }))
 app.use(express.json());
 app.use(cookieParser());
-const authenticateToken = (req, res, next) => {
-    const token = req.cookies.token;
-    // console.log(token);
-    if (!token) return res.sendStatus(401);
+// const authenticateToken = (req, res, next) => {
+//     const token = req.cookies.token;
+//     // console.log(token);
+//     if (!token) return res.sendStatus(401);
   
-    jwt.verify(token, 'ajfwjrirewifhwfwrgfwhrfghwihwgfwuiwrefwyruecyrwuwfyecurchburctr9b', (err, user) => {
-      if (err) return res.sendStatus(403);
-      req.user = user;
-      console.log(user);
-      next();
-    });
-  };
-  
+//     jwt.verify(token, 'ajfwjrirewifhwfwrgfwhrfghwihwgfwuiwrefwyruecyrwuwfyecurchburctr9b', (err, user) => {
+//       if (err) return res.sendStatus(403);
+//       req.user = user;
+//       console.log(user);
+//       next();
+//     });
+//   };
+  const connectionStringAtlas='mongodb+srv://pratikdayma45:LzJlylhbT6B09Fqd@cluster0.cpq5ooo.mongodb.net/'
   // mongodb://localhost:27017/Code_Editor_Db
 mongoose.connect('mongodb+srv://pratikdayma45:LzJlylhbT6B09Fqd@cluster0.cpq5ooo.mongodb.net/')
 .then(()=>{console.log('DB Connected Successfully');})

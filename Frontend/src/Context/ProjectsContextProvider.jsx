@@ -6,7 +6,8 @@ function ProjectsContextProvider({children}) {
     const [editTableProject,setEditTableProject]=useState({});
     const [edit,setEdit]=useState(false);
   return (
-   <ProjectsContext.Provider value={{projectsArray,setProjectsArray,editTableProject,setEditTableProject,edit,setEdit}}>
+   <ProjectsContext.Provider value={{projectsArray,setProjectsArray,editTableProject,
+   setEditTableProject,edit,setEdit}}>
     {children}
    </ProjectsContext.Provider>
   )

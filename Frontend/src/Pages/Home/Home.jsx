@@ -4,10 +4,9 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../../Context/UserContext/UserContextProvider';
 import SideBar from '../../Components/SideBar/SideBar';
 import QuoteCard from '../../Components/QutoeCard/Quote';
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 function Home() {
-  const {openNavSidebar,userDetails,logout,setIsLogin,setOpenNavSidebar}=useContext(UserContext);
-  const navigate=useNavigate();
+  const {openNavSidebar,userDetails}=useContext(UserContext);
   const [quote,setQuote]=useState([{
     quote:"Code is like humor. When you have to explain it, it’s bad.",
     author:"Cory House"
@@ -40,12 +39,6 @@ function Home() {
     quote:" Good code is its own best documentation.",
     author:"Steve McConnellE"
 },]);
-  const setIsLoginTrue=()=>{
-    setIsLogin(true);
-  }
-  const setIsLoginFalse=()=>{
-    setIsLogin(false);
-  }
 // const token=Cookies.get('token');
 // console.log(token);
   return (
@@ -57,8 +50,8 @@ function Home() {
 
      {/* INTRO SECTION OF LANDING PAGE */}
    <main className=' relative background bg-fixed min-h-[65vh] min-[400px]:min-h-[70vh] min-[600px]:min-h-[100vh] min-w-screen bg-no-repeat bg-cover bg-center 
-   bg-[url("https://images.unsplash.com/photo-1540597775766-09a0f60b4380?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")]
-   '>
+  bg-[url("../../../public/HomePage(4).jpg")]'
+   >
     <div className='absolute flex items-center max-[768px]:justify-center min-[768px]:pl-[50px] min-[1024px]:pl-[100px] h-[100%] w-[100%] bg-gradient-to-r from-[#000000] to-[#00000061] '>
       <section className=' w-[95%] min-[600px]:w-[90%] min-[768px]:w-[80%] min-[1256px]:w-[60%]  shadow-[0px_0px_10px_0px_#ff0000] p-2 min-[600px]:p-5 rounded-lg'>
       <h1 className='border-b-2 border-[#fd3838] text-[20px] min-[400px]:text-[25px] min-[600px]:text-[30px] min-[768px]:text-[35px] 
@@ -95,7 +88,7 @@ function Home() {
    {/* QUOTES SECTION OF LANDING PAGE */}
    <main className=' relative background bg-fixed min-h-[100vh]
     min-w-screen bg-no-repeat bg-cover bg-center 
-   bg-[url("https://images.unsplash.com/photo-1561736778-92e52a7769ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")]
+  bg-[url("../../../public/HomePage(2).jpg")]
    '>
     <div className='bg-[#000000b8]'>
     <h1 className='text-center text-[20px] min-[400px]:text-[25px] min-[600px]:text-[30px] min-[768px]:text-[35px] min-[1024px]:text-[45px] 

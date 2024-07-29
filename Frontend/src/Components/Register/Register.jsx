@@ -2,20 +2,15 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../Context/UserContext/UserContextProvider";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
-import { Link } from 'react-router-dom';
-import { GiSplitCross } from "react-icons/gi";
 import SideBar from "../SideBar/SideBar";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 function Register({ handleChangeFunction, toggleForm }) {
   const navigate = useNavigate();
   const [emailResponseData, setEmailResponseData] = useState('');
   const [allRequired, setAllRequired] = useState(false);
-  const { openNavSidebar,setOpenNavSidebar,userDetails,logout,setIsLogin, setUserDetails } = useContext(UserContext);
-  const setIsLoginTrue=()=>{
-    setIsLogin(true);
-  }
-  const setIsLoginFalse=()=>{
-    setIsLogin(false);
-  }
+  const { openNavSidebar,userDetails, setUserDetails } = useContext(UserContext);
+  const [showPassword,setShowPassword]=useState(false);
 
   const registerUserFunction = async (e) => {
     e.preventDefault();
@@ -111,19 +106,38 @@ function Register({ handleChangeFunction, toggleForm }) {
           />
         </div>
         <div className="mb-6">
-          <label className="block  mb-2" htmlFor="password">
+          <label className="block  mb-2">
             Password
           </label>
-          <input
-            required
-            type="password"
-            id="password"
+          {
+         showPassword
+            ?
+         <div  className="w-full border border-red-300  pr-2 flex items-center bg-[#93e0ff54] rounded-lg 
+         focus:outline-none focus:border-red-500">
+           <input
+            type="text"
             name="password"
             value={userDetails.password || ""}
             onChange={handleChangeFunction}
-            className="w-full px-3 py-2 border bg-[#93e0ff54]  rounded-lg 
+             className="bg-transparent h-full px-3 py-2
             focus:outline-none focus:border-red-500"
           />
+          < FaEyeSlash className="text-[25px] text-red-500" onClick={()=>{setShowPassword(false)}}/>
+         </div>
+            :
+         <div className="w-full border border-red-300 pr-2 flex items-center  bg-[#93e0ff54] rounded-lg 
+            focus:outline-none focus:border-red-500" >
+           <input
+            type="password"
+            name="password"
+            value={userDetails.password || ""}
+            onChange={handleChangeFunction} 
+            className="bg-transparent h-full px-3 py-2
+            focus:outline-none focus:border-red-500"
+          />
+           < FaEye className="text-[25px] text-red-500" onClick={()=>{setShowPassword(true)}}/>
+         </div>
+          }
         </div>
         {allRequired && (
           <p className="my-2 text-center font-bold text-[20px] text-[#00f8ff]">

@@ -14,24 +14,7 @@ const getAllProjectFunction=async(req,res)=>{
 }
 
 
-const editProjectFunction = async (req, res) => {
-  try {
-    let { id } = req.params;
-    let newStr = id.replace(/:/g, '');
-    const project = await projectModel.findById(newStr);   
-    res.json({
-      status: true,
-      message: "Getting edit project",
-      project, // Include the project data in the response if needed
-    });
-  } catch (error) {
-    res.status(500).json({
-      status: false,
-      message: "Error getting project",
-      error: error.message,
-    });
-  }
-};
+
 
 const deleteProjectFunction = async (req, res) => {
   try {
@@ -95,7 +78,7 @@ const saveEditProjectFunction=async(req,res)=>{
 module.exports={
     getAllProjectFunction,
     createNewProjectFunction,
-    editProjectFunction,
+    // editProjectFunction,
     saveEditProjectFunction,
     deleteProjectFunction
 }

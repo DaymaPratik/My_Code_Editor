@@ -28,3 +28,42 @@ Interactive Web Pages: Create stunning, interactive web pages with ease.
 Responsive Designs: Build responsive designs that look great on any device.
 Web Applications: Develop full-fledged web applications with our comprehensive toolset.
 By incorporating these elements, you can create a compelling and informative landing page that attracts and retains users for your online code editor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ const handleEdit=async(id)=>{
+      const response=await fetch(`http://localhost:10000/api/editProject/:${id}`,{
+        method:"GET",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        credentails:'include',
+      })
+      const data=await response.json();
+      setEditTableProject(data.project);
+      setEdit(true);
+      console.log(data);
+      navigate('/newProject');
+     }

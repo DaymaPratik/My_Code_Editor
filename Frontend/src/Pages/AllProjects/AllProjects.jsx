@@ -2,58 +2,53 @@ import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../Context/UserContext/UserContextProvider'
 import { Link, useNavigate } from 'react-router-dom';
 import HashLoader from "react-spinners/HashLoader";
-import { GiSplitCross } from "react-icons/gi";
 import { ProjectsContext } from '../../Context/ProjectsContextProvider';
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import SideBar from '../../Components/SideBar/SideBar';
 
 function AllProjects() {
-    const {openNavSidebar,setOpenNavSidebar,userDetails,logout,setIsLogin}=useContext(UserContext);
+    const {openNavSidebar,userDetails}=useContext(UserContext);
     const {projectsArray,setProjectsArray,setEditTableProject,setEdit}=useContext(ProjectsContext);
     const [loading,setLoading] = useState(true);
     const navigate=useNavigate();
-    const setIsLoginTrue=()=>{
-      setIsLogin(true);
-    }
-    const setIsLoginFalse=()=>{
-      setIsLogin(false);
-    }
+  
     useEffect(()=>{
         const getAllProjectFunction=async()=>{
-            const response=await fetch("https://my-code-editor.onrender.com/api/getAllProjects",{
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json",
-                },
-                credentials:'include',
-                body:JSON.stringify(userDetails),
-            })
-            const data=await response.json();
-            setProjectsArray(data.allProjectArray);
-            console.log("gettings all the projects of the user",data.allProjectArray);
-            
+         try {
+          const response=await fetch("https://my-code-editor.onrender.com/api/getAllProjects",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+            },
+            credentials:'include',
+            body:JSON.stringify(userDetails),
+        })
+        const data=await response.json();
+        setProjectsArray(data.allProjectArray);
+        console.log("gettings all the projects of the user",data.allProjectArray);
+        
+         } catch (error) {
+          console.log("Error while fetching all the projects",error);
+         }
         }
         setTimeout(()=>{
             setLoading(false)
           },2000)
-        return ()=>getAllProjectFunction();
+        getAllProjectFunction();
     },[])
     
-    const handleEdit=async(id)=>{
-      const response=await fetch(`https://my-code-editor.onrender.com/api/editProject/:${id}`,{
-        method:"GET",
-        headers:{
-          "Content-Type":"application/json"
-        },
-        credentails:'include',
-      })
-      const data=await response.json();
-      setEditTableProject(data.project);
+    const handleEdit=async(item)=>{
+      // console.log(item);
+      setEditTableProject(item);
+      // console.log(editTableProject);
       setEdit(true);
-      console.log(data);
       navigate('/newProject');
      }
+
+
+
+
      const deleteProjectFunction=async(id)=>{
       const response=await fetch(`https://my-code-editor.onrender.com/api/deleteProject/:${id}`,{
         method:"GET",
@@ -100,7 +95,7 @@ function AllProjects() {
                    < MdDelete title='Delete' className='hover:cursor-pointer p-1 transition ease-in duration-200 hover:shadow-[0px_0px_5px_0px_#c3fdff] hover:text-[#c3fdff]' 
                     onClick={()=>{deleteProjectFunction(item._id)}}/>
                    <FaEdit title='Edit' className='hover:cursor-pointer transition p-1 ease-in duration-200 hover:shadow-[0px_0px_5px_0px_#c3fdff] hover:text-[#c3fdff]' 
-                   onClick={()=>{handleEdit(item._id)}}/>
+                   onClick={()=>{handleEdit(item)}}/>
                     
                    </div>
                  </div>
@@ -109,10 +104,12 @@ function AllProjects() {
         })
         :
         <div>
-        <h3 className='w-[100%] py-2 border-2 text-center border-green-500 text-[30px] font-semibold my-2'>
+        <h3 className='w-[100%] py-2 px-5 text-red-500 text-center  shadow-[0px_0px_10px_0px_#ff0000] text-[30px]
+         font-semibold my-5'>
            Seems like you don't have a projects yet ...
         </h3>
-        <Link to={'/newProject'}><button className='block text-[25px] border-2 border-purple-600 px-3 my-2 py-1 mx-auto'>
+        <Link to={'/newProject'} className='my-10 block'><button className='block text-red-500 text-[25px] shadow-[0px_0px_10px_0px_#ff0000] 
+        px-5  py-2 mx-auto hover:bg-[#ff00009a] hover:cursor-pointer ease-in hover:text-white hover:shadow-[0px_0px_10px_0px_#ffffff] duration-150 transition '>
           Create a new Project</button></Link>
         </div>
        

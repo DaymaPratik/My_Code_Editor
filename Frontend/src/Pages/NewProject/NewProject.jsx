@@ -17,8 +17,7 @@ const onBottomLayoutChange = (layout) => {
 };
 
 function NewProject() {
-  const { openNavSidebar, setOpenNavSidebar, userDetails, logout, setIsLogin } =
-    useContext(UserContext);
+  const { openNavSidebar,  userDetails} =useContext(UserContext);
   const {setEditTableProject,editTableProject,edit,setEdit}=useContext(ProjectsContext);
   const [html, setHtml] = useState("");
   const [css, setCss] = useState("");
@@ -34,12 +33,7 @@ function NewProject() {
   const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
-  const setIsLoginTrue = () => {
-    setIsLogin(true);
-  };
-  const setIsLoginFalse = () => {
-    setIsLogin(false);
-  };
+
 
   const toggleTitleEditFuncton = () => {
     setCanEditTitle(!canEditTitle);
@@ -53,7 +47,6 @@ function NewProject() {
     setCss(editTableProject?.css || "");
     setJs(editTableProject?.js || "");
     setTitle(editTableProject?.title || "Untitled");
-   
   }, []);
 
   useEffect(() => {
@@ -122,7 +115,7 @@ function NewProject() {
 
   const editProjectFunction=async ()=>{
     try {
-      const response=await fetch('http://localhost:10000/api/saveEditProject',{
+      const response=await fetch('https://my-code-editor.onrender.com/api/saveEditProject',{
         method:"PATCH",
         headers:{
           "Content-Type":"application/json",

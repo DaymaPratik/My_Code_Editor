@@ -2,19 +2,14 @@ import { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from "../../Context/UserContext/UserContextProvider";
 import Cookies from 'js-cookie';
-import { Link } from 'react-router-dom';
-import { GiSplitCross } from "react-icons/gi";
 import SideBar from "../SideBar/SideBar";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 function Login({ toggleForm, handleChangeFunction }) {
-  const {openNavSidebar,setOpenNavSidebar,userDetails,logout,setIsLogin, setUserDetails } = useContext(UserContext);
+  const {openNavSidebar,userDetails, setUserDetails } = useContext(UserContext);
   const [allRequired, setAllRequired] = useState(false);
-  const setIsLoginTrue=()=>{
-    setIsLogin(true);
-  }
-  const setIsLoginFalse=()=>{
-    setIsLogin(false);
-  }
+  const [showPassword,setShowPassword]=useState(false);
   const [validUser, setValidUser] = useState({
     emailResponse: "",
     passResponse: ""
@@ -81,8 +76,8 @@ function Login({ toggleForm, handleChangeFunction }) {
             name="email"
             value={userDetails.email || ""}
             onChange={handleChangeFunction}
-            className="w-full px-3 py-2 border bg-[#93e0ff54]  rounded-lg 
-            focus:outline-none focus:border-red-500"
+            className="w-full px-3 py-2 border border-red-300  bg-[#93e0ff54]  rounded-lg 
+            focus:outline-none focus:border-red-500 "
           />
           {validUser.emailResponse && (
             <p className="my-2 text-center font-bold text-[20px] text-[#00f8ff]">
@@ -91,18 +86,38 @@ function Login({ toggleForm, handleChangeFunction }) {
           )}
         </div>
         <div className="mb-6">
-          <label className="block mb-2" htmlFor="password">
+          <label className="block mb-2">
             Password
           </label>
-          <input
-            type="password"
-            id="password"
+          {
+         showPassword
+            ?
+         <div  className="w-full border border-red-300  pr-2 flex items-center bg-[#93e0ff54] rounded-lg 
+         focus:outline-none focus:border-red-500">
+           <input
+            type="text"
             name="password"
             value={userDetails.password || ""}
             onChange={handleChangeFunction}
-            className="w-full px-3 py-2 border bg-[#93e0ff54] rounded-lg 
+             className="bg-transparent h-full px-3 py-2
             focus:outline-none focus:border-red-500"
           />
+          < FaEyeSlash className="text-[25px] text-red-500" onClick={()=>{setShowPassword(false)}}/>
+         </div>
+            :
+         <div className="w-full border border-red-300 pr-2 flex items-center  bg-[#93e0ff54] rounded-lg 
+            focus:outline-none focus:border-red-500" >
+           <input
+            type="password"
+            name="password"
+            value={userDetails.password || ""}
+            onChange={handleChangeFunction} 
+            className="bg-transparent h-full px-3 py-2
+            focus:outline-none focus:border-red-500"
+          />
+           < FaEye className="text-[25px] text-red-500" onClick={()=>{setShowPassword(true)}}/>
+         </div>
+          }
           {validUser.passResponse && (
             <p className="my-2 text-center font-bold text-[20px] text-[#00f8ff]">
               {validUser.passResponse}

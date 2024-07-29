@@ -1,8 +1,5 @@
 function QuoteCard({quote}) {
-   
   return (
-  
-        
         quote.map((item,idx)=>{
         return (
             <div key={idx} className='h-fit my-3 min-[600px]:min-h-[200px] w-[95%] min-[400px]:w-[90%] min-[600px]:w-[230px] min-[768px]:w-[300px] min-[1256px]:w-[350px] p-5  font-semibold  shadow-[0px_0px_10px_1px_#ff0000]'>
@@ -13,8 +10,6 @@ function QuoteCard({quote}) {
       </div>
         )
         })
-
-
   )
 }
 

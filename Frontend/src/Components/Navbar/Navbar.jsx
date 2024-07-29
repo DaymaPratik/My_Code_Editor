@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext} from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext/UserContextProvider";
 import { MdMenuOpen } from "react-icons/md";
 import '../../index.css'
