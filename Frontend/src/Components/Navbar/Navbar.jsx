@@ -20,7 +20,7 @@ function Navbar() {
         <h1 className="max-[768px]:hidden px-2 text-[25px] min-[1024px]:text-[30px] font-bold text-[red]">
           My Code Editor
         </h1>
-        <img src="../../../public/logo_2(2)_jpg.jpg" alt=""  className="h-[40px] min-[1024px]:h-[50px] "/>
+        <img src="../../../logo_2(2)_jpg.jpg" alt=""  className="h-[40px] min-[1024px]:h-[50px] "/>
       </div>
       <ul className="max-[600px]:hidden  text-white  text-[20px] min-[1024px]:text-[25px] flex gap-3 px-2 min-[1024px]:gap-5 
       items-center min-[1024px]:px-5">

@@ -19,7 +19,7 @@ function Login({ toggleForm, handleChangeFunction }) {
   const loginUserFunction = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://my-code-editor.onrender.com/api/user/login", {
+      const response = await fetch(" http://localhost:10000/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -92,7 +92,7 @@ function Login({ toggleForm, handleChangeFunction }) {
           {
          showPassword
             ?
-         <div  className="w-full border border-red-300  pr-2 flex items-center bg-[#93e0ff54] rounded-lg 
+         <div  className="w-full border border-red-300  pr-2 flex justify-between items-center bg-[#93e0ff54] rounded-lg 
          focus:outline-none focus:border-red-500">
            <input
             type="text"
@@ -105,7 +105,7 @@ function Login({ toggleForm, handleChangeFunction }) {
           < FaEyeSlash className="text-[25px] text-red-500" onClick={()=>{setShowPassword(false)}}/>
          </div>
             :
-         <div className="w-full border border-red-300 pr-2 flex items-center  bg-[#93e0ff54] rounded-lg 
+         <div className="w-full border border-red-300 pr-2 flex items-center justify-between bg-[#93e0ff54] rounded-lg 
             focus:outline-none focus:border-red-500" >
            <input
             type="password"

@@ -50,7 +50,7 @@ function Home() {
 
      {/* INTRO SECTION OF LANDING PAGE */}
    <main className=' relative background bg-fixed min-h-[65vh] min-[400px]:min-h-[70vh] min-[600px]:min-h-[100vh] min-w-screen bg-no-repeat bg-cover bg-center 
-  bg-[url("../../../public/HomePage(4).jpg")]'
+  bg-[url("../../../HomePage(4).jpg")]'
    >
     <div className='absolute flex items-center max-[768px]:justify-center min-[768px]:pl-[50px] min-[1024px]:pl-[100px] h-[100%] w-[100%] bg-gradient-to-r from-[#000000] to-[#00000061] '>
       <section className=' w-[95%] min-[600px]:w-[90%] min-[768px]:w-[80%] min-[1256px]:w-[60%]  shadow-[0px_0px_10px_0px_#ff0000] p-2 min-[600px]:p-5 rounded-lg'>
@@ -88,7 +88,7 @@ function Home() {
    {/* QUOTES SECTION OF LANDING PAGE */}
    <main className=' relative background bg-fixed min-h-[100vh]
     min-w-screen bg-no-repeat bg-cover bg-center 
-  bg-[url("../../../public/HomePage(2).jpg")]
+  bg-[url("../../../HomePage(2).jpg")]
    '>
     <div className='bg-[#000000b8]'>
     <h1 className='text-center text-[20px] min-[400px]:text-[25px] min-[600px]:text-[30px] min-[768px]:text-[35px] min-[1024px]:text-[45px] 

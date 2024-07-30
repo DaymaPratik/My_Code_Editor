@@ -67,3 +67,223 @@ By incorporating these elements, you can create a compelling and informative lan
       console.log(data);
       navigate('/newProject');
      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     Background Images Not Showing
+Incorrect Paths: Ensure that the paths to your images are correct. In a React project, you should use the public folder to store static assets and reference them like so:
+
+jsx
+Copy code
+<img src={`${process.env.PUBLIC_URL}/path/to/your/image.jpg`} alt="description" />
+Build Directory: Ensure that the images are correctly placed in the build directory when deploying. The public folder contents should be automatically included in the build folder.
+
+Case Sensitivity: Vercel, like most servers, is case-sensitive. Ensure that the file names and paths match exactly in case.
+
+404 Errors on Refresh
+Single Page Application (SPA) Routing: When deploying a React app (or any SPA), refreshing a page or directly accessing a route can result in a 404 error because the server does not know how to handle client-side routing. Vercel needs to be configured to serve the index.html file for all routes.
+
+To fix this, you can add a vercel.json configuration file in the root of your project with the following content:
+
+json
+Copy code
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+This tells Vercel to rewrite all routes to index.html, allowing your React Router to handle the routing.
+
+Deployment Build Issues: Ensure that your project builds correctly before deployment. Sometimes build issues can cause the deployment to not work as expected.
+
+Steps to Troubleshoot and Fix
+Check Image Paths: Verify that the paths to your images are correct and that the images are indeed being included in your build folder.
+
+Add vercel.json: Create a vercel.json file in the root of your project if you haven't already and add the rewrite configuration.
+
+Redeploy: After making these changes, redeploy your project to Vercel.
+
+By addressing these points, you should be able to resolve the issues with images not displaying and 404 errors on page refresh in your Vercel deployment.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The 404: NOT_FOUND error you’re encountering on Vercel typically indicates that the server cannot find the requested resource. Here’s a detailed breakdown to help you resolve this:
+
+Common Causes and Fixes:
+Check vercel.json Configuration:
+Make sure you have a vercel.json file with the correct rewrite rules. Here’s an example configuration:
+
+json
+Copy code
+{
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@vercel/node" }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
+This configuration ensures all routes are directed to index.html, allowing your frontend router to handle them.
+
+Static Assets Path:
+Verify the paths to your static assets. In a React app, static assets should be referenced from the public folder:
+
+html
+Copy code
+<img src="/images/myimage.jpg" alt="My Image">
+Deployment Logs:
+Check your Vercel deployment logs for any errors or warnings that might indicate issues with your build or file structure.
+
+Ensure Build is Successful:
+Run a local build to ensure everything compiles correctly:
+
+bash
+Copy code
+npm run build
+After a successful build, make sure to deploy the new build folder to Vercel.
+
+Check File Structure:
+Ensure your public folder is correctly structured and contains all static assets. For instance:
+
+bash
+Copy code
+/public
+  /images
+    myimage.jpg
+Inspect Routes in Your Code:
+If you’re using React Router, ensure your routes are correctly set up. For example:
+
+jsx
+Copy code
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="*" component={NotFound} />
+      </Switch>
+    </Router>
+  );
+}
+The path="*" route should be at the bottom to handle any unmatched routes.
+
+Steps to Fix:
+Add or Update vercel.json:
+Create or update the vercel.json file with the rewrite rules.
+
+Redeploy Your Application:
+Push the changes and redeploy your app on Vercel.
+
+Clear Browser Cache:
+Sometimes, cached data can cause issues. Clear your browser cache or try a hard reload (Ctrl + F5).
+
+Check Vercel Documentation:
+Refer to the Vercel documentation for any specific configurations or issues related to static assets and routing.
+
+Following these steps should help you resolve the 404 errors and ensure that your assets and routes are properly handled on Vercel. If you encounter any specific errors or issues, feel free to share them, and I can provide more targeted advice!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "routes":[
+        {
+          "src":"/",
+          "dest":"/"
+        },
+        {
+           "src":"/allProjects",
+          "dest":"/"
+        },
+        {
+            "src":"/newProject",
+           "dest":"/"
+         },
+         {
+            "src":"/auth",
+           "dest":"/"
+         }
+    ]
+}

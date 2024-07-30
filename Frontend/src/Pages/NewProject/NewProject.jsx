@@ -86,7 +86,7 @@ function NewProject() {
       return;
     }
     try {
-      const response = await fetch("https://my-code-editor.onrender.com/api/newProject", {
+      const response = await fetch(" http://localhost:10000/api/newProject", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +115,7 @@ function NewProject() {
 
   const editProjectFunction=async ()=>{
     try {
-      const response=await fetch('https://my-code-editor.onrender.com/api/saveEditProject',{
+      const response=await fetch(' http://localhost:10000/api/saveEditProject',{
         method:"PATCH",
         headers:{
           "Content-Type":"application/json",

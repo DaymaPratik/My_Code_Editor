@@ -16,7 +16,7 @@ function AllProjects() {
     useEffect(()=>{
         const getAllProjectFunction=async()=>{
          try {
-          const response=await fetch("https://my-code-editor.onrender.com/api/getAllProjects",{
+          const response=await fetch(" http://localhost:10000/api/getAllProjects",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -50,7 +50,7 @@ function AllProjects() {
 
 
      const deleteProjectFunction=async(id)=>{
-      const response=await fetch(`https://my-code-editor.onrender.com/api/deleteProject/:${id}`,{
+      const response=await fetch(` http://localhost:10000/api/deleteProject/:${id}`,{
         method:"GET",
         headers:{
           "Content-Type":"application/json"
