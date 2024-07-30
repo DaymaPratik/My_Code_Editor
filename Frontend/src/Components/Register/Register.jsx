@@ -15,7 +15,7 @@ function Register({ handleChangeFunction, toggleForm }) {
   const registerUserFunction = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(" http://localhost:10000/api/user/register", {
+      const response = await fetch("https://my-code-editor.onrender.com/api/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
