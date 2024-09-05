@@ -1,27 +1,29 @@
-const express=require('express');
-const userRouter=require('./Routes/userRoutes');
-const projectRouter=require('./Routes/projectsRoute')
-const mongoose=require('mongoose');
-const cors=require('cors');
-const jwt=require('jsonwebtoken');
-const User=require('./Model/userModel')
+const express = require('express');
+const userRouter = require('./Routes/userRoutes');
+const projectRouter = require('./Routes/projectsRoute')
+const testinomialRouter = require('./Routes/testinomialRoute')
+const mongoose = require('mongoose');
+const cors = require('cors');
+const jwt = require('jsonwebtoken');
+const User = require('./Model/userModel')
 var cookieParser = require('cookie-parser');
-const app= express();
+const app = express();
 
 
 app.use(cors({
-    origin:'https://my-code-editor-taupe.vercel.app',
+    origin: 'https://my-code-editor-taupe.vercel.app',
     credentials: true,
-    methods:'POST,GET,PUT,PATCH',
+    methods: 'POST,GET,PUT,PATCH',
 }))
 app.use(express.json());
 app.use(cookieParser());
-mongoose.connect('mongodb+srv://pratikdayma45:LzJlylhbT6B09Fqd@cluster0.cpq5ooo.mongodb.net/')
-.then(()=>{console.log('DB Connected Successfully');})
-.catch((e)=>{console.log("Error connecting DB ",e);})
+mongoose.connect('mongodb+srv://pratikdayma45:LzJlylhbT6B09Fqd@cluster0.cpq5ooo.mongodb.net/Code_Editor_Db')
+    .then(() => { console.log('DB Connected Successfully'); })
+    .catch((e) => { console.log("Error connecting DB ", e); })
 app.use(userRouter);
 app.use(projectRouter);
-app.listen(10000,()=>{console.log("server is runnig at port 10000");})
+app.use(testinomialRouter);
+app.listen(10000, () => { console.log("server is runnig at port 10000"); })
 
 
 

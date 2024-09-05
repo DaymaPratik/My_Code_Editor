@@ -11,6 +11,22 @@
   },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.2",
+    "@uiw/codemirror-theme-abcdef": "^4.23.0",
+    "@uiw/codemirror-theme-abyss": "^4.23.0",
+    "@uiw/codemirror-theme-andromeda": "^4.23.0",
+    "@uiw/codemirror-theme-atomone": "^4.23.0",
+    "@uiw/codemirror-theme-darcula": "^4.23.0",
+    "@uiw/codemirror-theme-eclipse": "^4.23.0",
+    "@uiw/codemirror-theme-github": "^4.23.0",
+    "@uiw/codemirror-theme-kimbie": "^4.23.0",
+    "@uiw/codemirror-theme-material": "^4.23.0",
+    "@uiw/codemirror-theme-quietlight": "^4.23.0",
+    "@uiw/codemirror-theme-red": "^4.23.0",
+    "@uiw/codemirror-theme-solarized": "^4.23.0",
+    "@uiw/codemirror-theme-tokyo-night-day": "^4.23.0",
+    "@uiw/codemirror-theme-white": "^4.23.0",
+    "@uiw/codemirror-theme-xcode": "^4.23.0",
+    "@uiw/codemirror-themes-all": "^4.23.0",
     "@uiw/react-codemirror": "^4.23.0",
     "js-cookie": "^3.0.5",
     "react": "^18.3.1",
@@ -19,7 +35,7 @@
     "react-resizable-panels": "^2.0.21",
     "react-router-dom": "^6.25.1",
     "react-spinners": "^0.14.1",
-    "react-split-pane": "^2.0.3"
+    "react-split-pane": "^0.1.92"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

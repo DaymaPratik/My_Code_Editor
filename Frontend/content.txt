@@ -32,16 +32,40 @@ By incorporating these elements, you can create a compelling and informative lan
 
 
 
+Features of this tool
+Simple & Clean Design, Lightweight, Easy & Fast
+Interactive program execution which makes the user to give program inputs at real time
+Helpful for beginners to learn and practice programs
+Dark & Light theme options and customizable code editor with more themes
+Options to Copy or Download the Output of the Program
+Expandable Output Terminal
+Coding sharing option helps you to save your code in cloud so that it can be accessed anytime and anywhere with internet
+
+
+Run your code fast
+Get detailed output and error description after each run
+You can also check the time and memory usage of your code
+Write your code faster using the auto-complete feature
+Use and import libraries
+Customize the editor with your favorite theme
+Read / Write and edit files like csv, text etc
 
 
 
 
 
+Why Programiz?
+
+Programming made easy
+We focus on simplicity. Programming tutorials and examples written in simple, understandable language for beginners.
 
 
+Content You Can Trust
+A dedicated group of experts continually working to create programming resources that is accurate and easier to understand.
 
 
-
+Learn by Doing
+The only way to learn to program is by writing code. We provide a lot of complete examples so that run and edit code on your own.
 
 
 
@@ -244,7 +268,40 @@ Following these steps should help you resolve the 404 errors and ensure that you
 
 
 
+Code with rich features
+There's a lot more to an editor. Whether it's using built-in features or rich extensions, there's something for everyone.
 
+terminal icon
+Integrated terminal
+Use your favorite shell whether it's zsh, pwsh, or git bash, all inside the editor.
+
+debug icon
+Run code
+Run and debug your code without leaving your editor.
+
+branching icon
+Version control
+Built-in support for git and many other source control providers.
+
+tools icon
+Build tasks
+Run tools and analyze their results from within VS Code.
+
+history icon
+Local history
+Never lose your changes with automatically tracked local history.
+
+palette icon
+Themes
+Your theme is an extension of your personality. Add some flair to your editor and add your touch.
+
+keyboard icon
+Accessibility
+Optimized experience for screen readers, high contrast themes, and keyboard-only navigation.
+
+globe icon
+Web support
+Whether you are on your phone, tablet, or desktop, you can access your code from anywhere.
 
 
 
