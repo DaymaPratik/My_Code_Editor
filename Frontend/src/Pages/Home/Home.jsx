@@ -45,7 +45,7 @@ function Home() {
   useEffect(() => {
     const getAllTestimonials = async () => {
       const response = await fetch(
-        "http://localhost:10000/api/getTestinomials",
+        "https://my-code-editor.onrender.com/api/getTestinomials",
         {
           method: "GET",
           headers: {
@@ -300,7 +300,7 @@ function Home() {
                       return <TestimonialCard item={item} key={item._id} />;
                     })
                   ) : (
-                    <div>
+                    <div className="w-fit mx-auto">
                       <h3
                         className="w-[100%] py-2 px-5 text-red-500 text-center  shadow-[0px_0px_10px_0px_#ff0000] text-[30px]
                font-semibold my-5"
