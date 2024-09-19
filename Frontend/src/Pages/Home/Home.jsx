@@ -61,7 +61,7 @@ function Home() {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-    return () => getAllTestimonials();
+   getAllTestimonials();
   }, []);
   const handleChangeFunction = (e) => {
     const { name, value } = e.target;
