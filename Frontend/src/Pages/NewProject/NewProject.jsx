@@ -148,6 +148,7 @@ function NewProject() {
         setAllRequired(true);
         return;
       }
+      setEditTableProject({});
       navigate("/allProjects");
     } catch (error) {
       console.log("error in frontend while creating new project");
