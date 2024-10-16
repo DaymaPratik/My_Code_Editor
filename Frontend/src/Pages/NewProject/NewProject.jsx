@@ -127,7 +127,7 @@ function NewProject() {
       return;
     }
     try {
-      const response = await fetch("http://api.mycodeeditor/api/newProject", {
+      const response = await fetch("http://api.mycodeeditor.in/api/newProject", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -158,7 +158,7 @@ function NewProject() {
   const editProjectFunction = async () => {
     try {
       const response = await fetch(
-        "http://api.mycodeeditor/api/saveEditProject",
+        "http://api.mycodeeditor.in/api/saveEditProject",
         {
           method: "PATCH",
           headers: {

@@ -8,25 +8,13 @@ const jwt = require('jsonwebtoken');
 const User = require('./Model/userModel')
 var cookieParser = require('cookie-parser');
 const app = express();
-const allowedOrigins = ['http://mycodeeditor.in', 'https://my-code-editor-taupe.vercel.app'];
+
 
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin) return callback(null, true); // Allow non-browser requests like Postman
-        if (allowedOrigins.indexOf(origin) === -1) {
-            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-            return callback(new Error(msg), false);
-        }
-        return callback(null, true);
-    },
-    credentials: true,  // If you need to support credentials like cookies
-}));
-
-// app.use(cors({
-//     origin: 'http://mycodeeditor.in/',
-//     credentials: true,
-//     methods: 'POST,GET,PUT,PATCH',
-// }))
+    origin: 'http://mycodeeditor.in',
+    credentials: true,
+    methods: 'POST,GET,PUT,PATCH',
+}))
 app.use(express.json());
 app.use(cookieParser());
 mongoose.connect('mongodb://localhost:27017/Code_Editor_Db')

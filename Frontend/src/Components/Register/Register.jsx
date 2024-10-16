@@ -16,7 +16,7 @@ function Register({ handleChangeFunction, toggleForm }) {
   const registerUserFunction = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://api.mycodeeditor/api/user/register", {
+      const response = await fetch("http://api.mycodeeditor.in/api/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
