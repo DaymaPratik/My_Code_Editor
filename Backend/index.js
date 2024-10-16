@@ -11,7 +11,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: 'http://mycodeeditor.in',
+    origin: 'http://mycodeeditor.in/',
     credentials: true,
     methods: 'POST,GET,PUT,PATCH',
 }))
