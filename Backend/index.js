@@ -11,13 +11,13 @@ const app = express();
 
 
 app.use(cors({
-    origin: 'https://my-code-editor-taupe.vercel.app',
+    origin: 'http://mycodeeditor.in',
     credentials: true,
     methods: 'POST,GET,PUT,PATCH',
 }))
 app.use(express.json());
 app.use(cookieParser());
-mongoose.connect('mongodb+srv://pratikdayma45:LzJlylhbT6B09Fqd@cluster0.cpq5ooo.mongodb.net/Code_Editor_Db')
+mongoose.connect('mongodb://localhost:27017/Code_Editor_Db')
     .then(() => { console.log('DB Connected Successfully'); })
     .catch((e) => { console.log("Error connecting DB ", e); })
 app.use(userRouter);

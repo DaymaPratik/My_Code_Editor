@@ -45,7 +45,7 @@ function Home() {
   useEffect(() => {
     const getAllTestimonials = async () => {
       const response = await fetch(
-        "https://my-code-editor.onrender.com/api/getTestinomials",
+        "http://api.mycodeeditor.in/api/getTestinomials",
         {
           method: "GET",
           headers: {
@@ -72,7 +72,7 @@ function Home() {
   };
   const createTestinomialFunction = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://my-code-editor.onrender.com/api/addTestinomial", {
+    const response = await fetch("http://api.mycodeeditor.in/api/addTestinomial", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
