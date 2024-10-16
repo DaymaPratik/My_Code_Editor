@@ -20,7 +20,7 @@ function Login({ toggleForm, handleChangeFunction }) {
   const loginUserFunction = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://api.mycodeeditor.in/api/user/login", {
+      const response = await fetch("http://api.mycodeeditor/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
