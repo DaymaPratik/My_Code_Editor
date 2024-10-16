@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost:27017/Code_Editor_Db')
 app.use(userRouter);
 app.use(projectRouter);
 app.use(testinomialRouter);
-app.listen(10000, () => { console.log("server is runnig at port 10000"); })
+app.listen(8000, () => { console.log("server is runnig at port 8000"); })
 
 
 
