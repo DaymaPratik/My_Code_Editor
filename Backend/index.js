@@ -51,7 +51,7 @@
 //MONGODB LOCALHOST URL = mongodb://localhost:27017/Code_Editor_Db
 // MONGODB CLOUD ATLAS URL=mongodb+srv://pratikdayma45:LzJlylhbT6B09Fqd@cluster0.cpq5ooo.mongodb.net/
 
-const cors = require('cors'); // Add cors module
+const cors = require('cors');
 const express = require('express'); 
 const userRouter = require('./Routes/userRoutes');
 const projectRouter = require('./Routes/projectsRoute');
@@ -60,14 +60,19 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const app = express();
 
-// Use CORS middleware for handling cross-origin requests
+// CORS configuration options
 const corsOptions = {
-    origin: 'http://mycodeeditor.in',
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: 'http://mycodeeditor.in', // Your frontend origin
+    credentials: true,                // Allow credentials like cookies
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 };
+
+// Apply CORS middleware to handle CORS
 app.use(cors(corsOptions));
+
+// Explicitly handle preflight OPTIONS requests for all routes
+app.options('*', cors(corsOptions)); // This allows preflight requests for all routes
 
 // Use built-in middleware to parse JSON request bodies
 app.use(express.json());
@@ -85,14 +90,15 @@ mongoose.connect('mongodb://localhost:27017/Code_Editor_Db')
     });
 
 // Use routers for specific routes
-app.use(userRouter);
-app.use(projectRouter);
-app.use(testinomialRouter);
+app.use('/api/user', userRouter);
+app.use('/api/project', projectRouter);
+app.use('/api/testinomial', testinomialRouter);
 
 // Start the server
 app.listen(8000, () => { 
     console.log("Server is running At port 8000"); 
 });
+
 
 
 
