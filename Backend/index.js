@@ -125,6 +125,6 @@ app.use(projectRouter);
 app.use(testinomialRouter);
 
 // Start the server
-app.listen(10000, () => { 
-    console.log("Server is running at port 10000"); 
+app.listen(8000, () => { 
+    console.log("Server is running At port 8000"); 
 });
