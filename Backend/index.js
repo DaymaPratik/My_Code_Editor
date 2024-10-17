@@ -1,30 +1,36 @@
 const express = require('express');
 const userRouter = require('./Routes/userRoutes');
-const projectRouter = require('./Routes/projectsRoute')
-const testinomialRouter = require('./Routes/testinomialRoute')
+const projectRouter = require('./Routes/projectsRoute');
+const testinomialRouter = require('./Routes/testinomialRoute');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const jwt = require('jsonwebtoken');
-const User = require('./Model/userModel')
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const app = express();
 
-app.options('*', cors()); // Allow all OPTIONS requests to pass CORS
+// Apply CORS as the first middleware
 app.use(cors({
-    origin: 'http://mycodeeditor.in', // No trailing slash
+    origin: 'http://mycodeeditor.in', // Ensure no trailing slash
     credentials: true,
-    methods: 'GET,POST,PUT,PATCH,DELETE', // Ensure all used methods are listed
-    allowedHeaders: 'Content-Type,Authorization', // Ensure correct headers are allowed
+    methods: 'GET,POST,PUT,PATCH,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
 }));
+
+app.options('*', cors()); // Handle preflight requests for all routes
+
 app.use(express.json());
 app.use(cookieParser());
+
 mongoose.connect('mongodb://localhost:27017/Code_Editor_Db')
     .then(() => { console.log('DB Connected Successfully'); })
-    .catch((e) => { console.log("Error connecting DB ", e); })
+    .catch((e) => { console.log("Error connecting DB ", e); });
+
+// Your routes
 app.use(userRouter);
 app.use(projectRouter);
 app.use(testinomialRouter);
-app.listen(10000, () => { console.log("server is runnig at port 10000"); })
+
+app.listen(10000, () => { console.log("server is running at port 10000"); });
+
 
 
 
