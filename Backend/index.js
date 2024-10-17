@@ -9,12 +9,13 @@ const User = require('./Model/userModel')
 var cookieParser = require('cookie-parser');
 const app = express();
 
-
+app.options('*', cors()); // Allow all OPTIONS requests to pass CORS
 app.use(cors({
-    origin: 'http://mycodeeditor.in/',
+    origin: 'http://mycodeeditor.in', // No trailing slash
     credentials: true,
-    methods: 'POST,GET,PUT,PATCH',
-}))
+    methods: 'GET,POST,PUT,PATCH,DELETE', // Ensure all used methods are listed
+    allowedHeaders: 'Content-Type,Authorization', // Ensure correct headers are allowed
+}));
 app.use(express.json());
 app.use(cookieParser());
 mongoose.connect('mongodb://localhost:27017/Code_Editor_Db')
