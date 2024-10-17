@@ -74,6 +74,12 @@ app.use(cors(corsOptions));
 // Explicitly handle preflight OPTIONS requests for all routes
 app.options('*', cors(corsOptions)); // This allows preflight requests for all routes
 
+// Middleware to log CORS headers
+app.use((req, res, next) => {
+    console.log('CORS Headers being sent:', res.getHeaders()); // Logs the response headers including CORS
+    next();
+});
+
 // Use built-in middleware to parse JSON request bodies
 app.use(express.json());
 
@@ -86,7 +92,7 @@ mongoose.connect('mongodb://localhost:27017/Code_Editor_Db')
         console.log('DB Connected Successfully'); 
     })
     .catch((e) => { 
-        console.log("Error connecting DB ", e); 
+        console.log('Error connecting DB', e); 
     });
 
 // Use routers for specific routes
@@ -96,9 +102,8 @@ app.use('/api/testinomial', testinomialRouter);
 
 // Start the server
 app.listen(8000, () => { 
-    console.log("Server is running At port 8000"); 
+    console.log('Server is running At port 8000'); 
 });
-
 
 
 
