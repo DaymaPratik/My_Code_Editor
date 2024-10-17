@@ -51,58 +51,23 @@
 //MONGODB LOCALHOST URL = mongodb://localhost:27017/Code_Editor_Db
 // MONGODB CLOUD ATLAS URL=mongodb+srv://pratikdayma45:LzJlylhbT6B09Fqd@cluster0.cpq5ooo.mongodb.net/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const express = require('express');
+const cors = require('cors'); // Add cors module
+const express = require('express'); 
 const userRouter = require('./Routes/userRoutes');
 const projectRouter = require('./Routes/projectsRoute');
 const testinomialRouter = require('./Routes/testinomialRoute');
 const mongoose = require('mongoose');
-const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const app = express();
 
-// Explicitly handle CORS
-app.use((req, res, next) => {
-    // Allow requests from your frontend origin
-    res.setHeader('Access-Control-Allow-Origin', 'http://mycodeeditor.in');
-    
-    // Allow credentials such as cookies, authorization headers, etc.
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    
-    // Allow all methods that your frontend may send
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-    
-    // Allow headers that are commonly used, such as content-type and authorization
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    
-    // Preflight requests (OPTIONS) should respond with 200 and stop further handling
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200); // Respond to OPTIONS with 200
-    }
-
-    // Move to the next middleware/route handler
-    next();
-});
+// Use CORS middleware for handling cross-origin requests
+const corsOptions = {
+    origin: 'http://mycodeeditor.in',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+app.use(cors(corsOptions));
 
 // Use built-in middleware to parse JSON request bodies
 app.use(express.json());
@@ -128,3 +93,24 @@ app.use(testinomialRouter);
 app.listen(8000, () => { 
     console.log("Server is running At port 8000"); 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
